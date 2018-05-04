@@ -1,0 +1,147 @@
+#!/bin/bash
+#
+#	By Hernan Chavez Thielemann
+#
+#	- Latest test in ubuntu vanilla 16.04 - 04-05-2018.
+#
+#	*Install Notes:
+#
+#	- You can run this just writing in the bash terminal "./lms-install", 
+#	naturally doing this operation in the folder where is allocated this
+#	file (lms-install). The execution location does not matters, lammps is
+#	installed as package in /usr/local/bin, so also you can delete 
+#	every-downloaded-thing named lammps-XXXxxXX in the Downloads folder.
+#
+#	- You must possess sudo rights to accomplish this installation.
+#
+#	- This download lammps in "~/Downloads" and  installs lammps as "lammps"
+#	using 4 cores. You can change this in steps 2 and 3. also installs the 
+#	python wrapper, you can avoid this comenting the seccond (II) part.
+# 
+#
+#	- Are required about 130MB in packages + 120MB of lammps to be 
+#	downloaded (I mean, just in case you're using mobile data). The whole 
+#	process takes about 5-10, 15-20 minutes using 2 cores.
+#
+#
+#-------------------------------------------------------------------
+#-------------------------------------------------------------------
+# I .- To install Lammps-NEwestVR with Python package among others:
+#-------------------------------------------------------------------
+#
+#	1.- This first step prepares your system:
+
+sudo apt-get install g++ mpi-default-bin mpi-default-dev libfftw3-dev
+sudo apt-get install build-essential gfortran
+sudo apt-get install libjpeg-dev
+sudo apt-get install libpng12-dev libpng-dev
+sudo apt-get install make
+sudo apt install python-dev
+
+#	2.- Second step: Download lammps tar file
+#	*Note: if your downloads folder isn't "Downloads",
+#	you could change "cd ~/Downloads" to "cd ~/<yourdownfile>"
+
+cd ~/Downloads
+wget http://lammps.sandia.gov/tars/lammps-stable.tar.gz
+tar xvzf lammps-stable.tar.gz
+
+cd lammps-*/src
+
+#	Making lammps - Now from lammps-XXxxxXX/src folder:
+
+make clean-all
+make yes-asphere 
+make yes-body 
+make yes-class2 
+make yes-colloid 
+make yes-compress 
+make yes-coreshell 
+make yes-dipole 
+make yes-granular 
+make yes-kspace 
+make yes-manybody 
+make yes-mc 
+make yes-misc 
+make yes-molecule 
+make yes-mpiio
+make yes-opt
+make yes-peri 
+make yes-python
+make yes-qeq 
+make yes-replica 
+make yes-rigid 
+make yes-shock 
+make yes-snap 
+make yes-srd 
+
+make yes-user-molfile
+make yes-user-omp
+make yes-user-fep
+
+# an go on till obtain some thing like:
+make package ps
+
+#Installed YES: package ASPHERE
+#Installed YES: package BODY
+#Installed YES: package CLASS2
+#Installed YES: package COLLOID
+#Installed YES: package COMPRESS
+#Installed YES: package CORESHELL
+#Installed YES: package DIPOLE
+#Installed  NO: package GPU
+#Installed YES: package GRANULAR
+#Installed  NO: package KIM
+#Installed  NO: package KOKKOS
+#Installed YES: package KSPACE
+#Installed YES: package MANYBODY
+#Installed YES: package MC
+#Installed  NO: package MEAM
+#Installed YES: package MISC
+#Installed YES: package MOLECULE
+#Installed YES: package MPIIO
+#Installed YES: package OPT
+#Installed YES: package PERI
+#Installed  NO: package POEMS
+#Installed YES: package PYTHON
+#Installed YES: package QEQ
+#Installed  NO: package REAX
+#Installed YES: package REPLICA
+#Installed YES: package RIGID
+#Installed YES: package SHOCK
+#Installed YES: package SNAP
+#Installed YES: package SRD
+#Installed  NO: package VORONOI
+
+#	2.- Third step: make lammps
+# 	I use /usr/local/bin as default, maybe for you is diferent 
+# 	-j 4 # where 4 is the number of cores to make it faster
+
+make clean-all
+make ubuntu -j 4
+mv lmp_ubuntu lammps
+sudo cp lammps /usr/local/bin
+
+# now you can try lammps... go on and try (to the examples folder)
+# use it in some "eXample" folder just typing in bash:
+# lammps < in.eXample
+# if you can reach the “Total wall time:” line all seems ok.
+#-------------------------------------------------------------------
+#-------------------------------------------------------------------
+# II .- Now  lets install the wrapper into Python!
+#-------------------------------------------------------------------
+#
+#
+#   1st.- Lammps have to be made as shared library, to do this:
+
+make mode=shlib ubuntu -j 4
+
+#   2nd.- Being the laziest, invoke install.py... but from 
+# 	the make command in the src directory as:
+# *Note: in this mode you cannot control which Python is invoked by root.
+
+sudo make install-python
+
+# now you can try the python scripts in the examples folder
+#
+make clean-all
