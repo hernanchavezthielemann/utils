@@ -6,7 +6,7 @@
 #
 #	*Install Notes:
 #
-#	- You can run this just writing in the bash terminal "./lms-install", 
+#	- You can run this just writing in the bash terminal "bash lms-install",
 #	naturally doing this operation in the folder where is allocated this
 #	file (lms-install). The execution location does not matters, lammps is
 #	installed as package in /usr/local/bin, so also you can delete 
@@ -113,7 +113,7 @@ make package ps
 #Installed YES: package SRD
 #Installed  NO: package VORONOI
 
-#	2.- Third step: make lammps
+#	3.- Third step: make lammps
 # 	I use /usr/local/bin as default, maybe for you is diferent 
 # 	-j 4 # where 4 is the number of cores to make it faster
 
