@@ -1,17 +1,17 @@
 #!/bin/bash
-LBlue = '\033[1;34m'
-Green = '\033[0;32m'
-Bcolor ='\033[0m'
-printf "\n${LBlue} INSTALLING GRO2LAM ${NC}\n"
+LBlue='\033[1;34m'
+Green='\033[0;32m'
+Bcolor='\033[0m'
+printf "\n${LBlue} INSTALLING GRO2LAM ${Bcolor}\n\n"
 
 wget https://github.com/hernanchavezthielemann/GRO2LAM/archive/07may18.zip
 unzip 07may18.zip
 
-printf "${LBlue} Collecting garbage ${NC}\n"
+printf "${LBlue} Collecting garbage ${Bcolor}\n\n"
 rm 07may18.zip
 rm G2L_installer
 
 cd GRO2LAM-*
 python setup
-printf "\n${Green} Install finished ${NC}\n"
+printf "\n${Green} Install finished ${Bcolor}\n"
 ./run
