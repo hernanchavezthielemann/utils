@@ -150,7 +150,7 @@ make mode=shlib ubuntu -j $d_v
 
 sudo make install-python
 
-# as sometimes that last line doesn't make the tric
+# as sometimes that last line doesn't make the trick
 cd ../python
 sudo python install.py
 # now you can try the python scripts in the examples folder
