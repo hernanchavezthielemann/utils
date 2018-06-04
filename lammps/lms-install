@@ -39,6 +39,7 @@ sudo apt-get install libjpeg-dev
 sudo apt-get install libpng12-dev libpng-dev
 sudo apt-get install make
 sudo apt install python-dev
+sudo apt install python-numpy
 
 #	2.- Second step: Download lammps tar file
 #	*Note: if your downloads folder isn't "Downloads",
@@ -119,8 +120,13 @@ make package ps
 # 	I use /usr/local/bin as default, maybe for you is diferent 
 # 	-j 4 # where 4 is the number of cores to make it faster
 
+a_v=$(nproc --all)
+b_v=2
+d_v=$(($a_v/$b_v))
+
+
 make clean-all
-make ubuntu -j 4
+make ubuntu -j $d_v
 mv lmp_ubuntu lammps
 sudo cp lammps /usr/local/bin
 
@@ -136,7 +142,7 @@ sudo cp lammps /usr/local/bin
 #
 #   1st.- Lammps have to be made as shared library, to do this:
 
-make mode=shlib ubuntu -j 4
+make mode=shlib ubuntu -j $d_v
 
 #   2nd.- Being the laziest, invoke install.py... but from 
 # 	the make command in the src directory as:
@@ -144,6 +150,9 @@ make mode=shlib ubuntu -j 4
 
 sudo make install-python
 
+# as sometimes that last line doesn't make the tric
+cd ../python
+sudo python install.py
 # now you can try the python scripts in the examples folder
 #
 make clean-all
