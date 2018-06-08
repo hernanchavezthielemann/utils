@@ -37,6 +37,7 @@ sudo apt-get install g++ mpi-default-bin mpi-default-dev libfftw3-dev
 sudo apt-get install build-essential gfortran
 sudo apt-get install libjpeg-dev
 sudo apt-get install libpng12-dev libpng-dev
+sudo apt-get install libz-dev
 sudo apt-get install make
 sudo apt install python-dev
 sudo apt install python-numpy
