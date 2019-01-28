@@ -4,11 +4,11 @@ Green='\033[0;32m'
 Bcolor='\033[0m'
 printf "\n${LBlue} INSTALLING GRO2LAM ${Bcolor}\n\n"
 
-wget https://github.com/hernanchavezthielemann/GRO2LAM/archive/20dec18.zip
-unzip 20dec18.zip
+wget https://github.com/hernanchavezthielemann/GRO2LAM/archive/27ene19.zip
+unzip 27ene19.zip
 
 printf "${LBlue} Collecting garbage ${Bcolor}\n\n"
-rm 20dec18.zip
+rm 27ene19.zip
 rm G2L_installer
 
 cd GRO2LAM-*
