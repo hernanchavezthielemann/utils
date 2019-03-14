@@ -1,0 +1,18 @@
+#!/bin/bash
+LBlue='\033[1;34m'
+Green='\033[0;32m'
+Bcolor='\033[0m'
+printf "\n${LBlue}      -- BETA -- ${Bcolor}\n\n"
+printf "\n${LBlue} INSTALLING GRO2LAM ${Bcolor}\n\n"
+
+wget https://github.com/hernanchavezthielemann/GRO2LAM/archive/20mar19.zip
+unzip 20mar19.zip
+
+printf "${LBlue} Collecting garbage ${Bcolor}\n\n"
+rm 20mar19.zip
+rm G2L_iBeta
+
+cd GRO2LAM-*
+python setup
+printf "\n${Green} Install finished ${Bcolor}\n"
+./run
