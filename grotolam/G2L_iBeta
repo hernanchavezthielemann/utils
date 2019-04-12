@@ -12,7 +12,7 @@ printf "${LBlue} Collecting garbage ${Bcolor}\n\n"
 rm opls_mol_double_tag.zip
 rm G2L_iBeta
 
-cd GRO2LAM-*
+cd GRO2LAM-opls_mol_double_tag
 python setup
 printf "\n${Green} Install finished ${Bcolor}\n"
 ./run
