@@ -5,11 +5,11 @@ Bcolor='\033[0m'
 printf "\n${LBlue}      -- BETA -- ${Bcolor}\n\n"
 printf "\n${LBlue} INSTALLING GRO2LAM ${Bcolor}\n\n"
 
-wget https://github.com/hernanchavezthielemann/GRO2LAM/archive/20mar19.zip
-unzip 20mar19.zip
+wget https://github.com/hernanchavezthielemann/GRO2LAM/archive/opls_mol_double_tag.zip
+unzip opls_mol_double_tag.zip
 
 printf "${LBlue} Collecting garbage ${Bcolor}\n\n"
-rm 20mar19.zip
+rm opls_mol_double_tag.zip
 rm G2L_iBeta
 
 cd GRO2LAM-*
