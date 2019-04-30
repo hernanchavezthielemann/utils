@@ -12,6 +12,6 @@ rm 27ene19.zip
 rm G2L_installer
 
 cd GRO2LAM-*
-python setup
+python2 setup
 printf "\n${Green} Install finished ${Bcolor}\n"
 ./run
