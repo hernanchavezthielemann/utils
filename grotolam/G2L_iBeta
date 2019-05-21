@@ -5,14 +5,14 @@ Bcolor='\033[0m'
 printf "\n${LBlue}      -- BETA -- ${Bcolor}\n\n"
 printf "\n${LBlue} INSTALLING GRO2LAM ${Bcolor}\n\n"
 
-wget https://github.com/hernanchavezthielemann/GRO2LAM/archive/opls_mol_double_tag.zip
-unzip opls_mol_double_tag.zip
+wget https://github.com/hernanchavezthielemann/GRO2LAM/archive/beta_beta.zip
+unzip beta_beta.zip
 
 printf "${LBlue} Collecting garbage ${Bcolor}\n\n"
-rm opls_mol_double_tag.zip
+rm beta_beta.zip
 rm G2L_iBeta
 
-cd GRO2LAM-opls_mol_double_tag
+cd GRO2LAM-beta_beta
 python setup
 printf "\n${Green} Install finished ${Bcolor}\n"
 ./run
