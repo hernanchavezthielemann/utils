@@ -13,6 +13,6 @@ rm py3_compatibility.zip
 rm G2L_iBeta
 
 cd GRO2LAM-py3_compatibility
-python setup
+python3 setup
 printf "\n${Green} Install finished ${Bcolor}\n"
 ./run
