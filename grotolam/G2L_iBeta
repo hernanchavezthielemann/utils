@@ -3,16 +3,16 @@ LBlue='\033[1;34m'
 Green='\033[0;32m'
 Bcolor='\033[0m'
 printf "\n${LBlue}      -- BETA -- ${Bcolor}\n\n"
-printf "\n${LBlue} INSTALLING GRO2LAM ${Bcolor}\n\n"
+printf "\n${LBlue} INSTALLING GRO2LAM { BETA }${Bcolor}\n\n"
 
-wget https://github.com/hernanchavezthielemann/GRO2LAM/archive/beta_beta.zip
-unzip beta_beta.zip
+wget https://github.com/hernanchavezthielemann/GRO2LAM/archive/py3_compatibility.zip
+unzip py3_compatibility.zip
 
 printf "${LBlue} Collecting garbage ${Bcolor}\n\n"
-rm beta_beta.zip
+rm py3_compatibility.zip
 rm G2L_iBeta
 
-cd GRO2LAM-beta_beta
+cd GRO2LAM-py3_compatibility
 python setup
 printf "\n${Green} Install finished ${Bcolor}\n"
 ./run
